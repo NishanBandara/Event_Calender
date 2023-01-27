@@ -1,4 +1,4 @@
-import 'package:event_calender/SplashScreen.dart';
+import 'package:event_calender/Screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
