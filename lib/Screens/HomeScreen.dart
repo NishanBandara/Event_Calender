@@ -18,6 +18,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final Map<DateTime, List> _holidays = {
+    DateTime(2023, 1, 15): ["Tamil Thai Pongal"],
+    DateTime(2023, 1, 16): ["Special Bank Holiday"],
+    DateTime(2023, 2, 14): ["Valentine's Day"],
+    DateTime(2023, 2, 18): ["Maha sive Day"],
+    DateTime(2023, 3, 6): ["Madin full moon poya day"],
+  };
+
   CalendarFormat _calendarFormat = CalendarFormat.month;
   late CalendarController _controller;
   late Map<DateTime, List<dynamic>> _titleEvents;
@@ -171,7 +179,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 headerVisible: true,
                 events: _titleEvents,
                 initialCalendarFormat: CalendarFormat.month,
+                holidays: _holidays,
                 calendarStyle: CalendarStyle(
+                    holidayStyle: TextStyle(
+                        color: Color.fromARGB(255, 231, 134, 7),
+                        fontWeight: FontWeight.w500),
                     weekendStyle: TextStyle(
                         color: Colors.red, fontWeight: FontWeight.w500),
                     canEventMarkersOverflow: true,
@@ -234,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       margin: const EdgeInsets.all(4.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: secondaryColor,
                           borderRadius: BorderRadius.circular(100)),
                       child: Text(
                         date.day.toString(),
